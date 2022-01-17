@@ -18,14 +18,10 @@ public class flink01 {
         //3.设置状态后端方式
         env.setStateBackend(new HashMapStateBackend());
         //4.设置checkpoint地址
-        env.getCheckpointConfig().setCheckpointStorage("file:///D:/Flink/src/snapshot");
-
-        //配置数据源
+//        env.getCheckpointConfig().setCheckpointStorage("file:///D:/Flink/src/snapshot");
+       //配置数据源
         DataStreamSource<String> stringDataStreamSource = env.readTextFile("D:\\Flink\\src\\main\\resources\\data.txt");
         stringDataStreamSource.print();
-
         env.execute("flink01");
-
-
     }
 }
